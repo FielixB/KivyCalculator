@@ -1,0 +1,64 @@
+
+# Define Widgets
+<CalcInput>
+    multiline: False
+    # When submitted
+    on_text_validate: app.add_input('test')
+
+<CalcButton@Button>:
+    # Default button from which
+    # all buttons will be derived
+
+<OpButton>
+    on_press: self.add_input(self.text)
+
+<NumButton@CalcButton>
+    on_press: num_input.add_input(self.text)
+
+# UIX
+BoxLayout:
+	orientation: "vertical"
+	padding: 20
+	CalcInput:
+	    id: num_input
+		text: "1234"
+		on_focus: pass
+		size_hint_y: None
+		height: 100
+
+	GridLayout:
+		rows: 4
+		cols: 3
+
+        # Row 3
+		OpButton:
+		    text: "+"
+		    id: plus_btn
+		OpButton:
+		    text: "-"
+		OpButton:
+		    text: "="
+
+		# Row 3
+		NumButton:
+            text: "7"
+		NumButton:
+			text: "8"
+		NumButton:
+			text: "9"
+
+		# Row 2
+		Button:
+			text: "4"
+		Button:
+			text: "5"
+		Button:
+			text: "6"
+
+		# Row 1
+		Button:
+			text: "1"
+		Button:
+			text: "2"
+		Button:
+			text: "3"
