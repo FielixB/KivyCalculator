@@ -15,13 +15,11 @@ class CalculatorApp(App):
 	def __init__(self, **kwargs):
 		super(CalculatorApp, self).__init__(**kwargs)
 
-		self.base = NumBases.DEC
-
 	def eval_input(self):
 		print('eval_input')
 
 	def add_input(self, string):
-		print("add input on app")
+		pass
 
 	def on_base_changed(self, old, new):
 		pass
